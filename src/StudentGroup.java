@@ -162,36 +162,44 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public void bubbleSort() {
-		
-	}
+		for (int i=1; i<students.length; ++i)
+	        for(int j=0; j<students.length -i; ++j)
+	            if (students[j].compareTo(students[j+1]) > 0)
+	     		{
+	                Student temp = students[j];
+		            students[j] = students[j+1];
+		            students[j+1] = temp;
+		        }
+		return;
+    }
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
-		// Add your implementation here
+		
 		return null;
 	}
 
 	@Override
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
-		// Add your implementation here
+		
 		return null;
 	}
 
 	@Override
 	public Student[] getNearBirthDate(Date date, int days) {
-		// Add your implementation here
+		
 		return null;
 	}
 
 	@Override
 	public int getCurrentAgeByDate(int indexOfStudent) {
-		// Add your implementation here
+		
 		return 0;
 	}
 
 	@Override
 	public Student[] getStudentsByAge(int age) {
-		// Add your implementation here
+		
 		return null;
 	}
 
