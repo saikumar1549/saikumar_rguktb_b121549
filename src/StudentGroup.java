@@ -199,12 +199,12 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		int c=0;
 		for (int i=0;i<students.length ; ++i)
-			if((students[i].getBirthDate().after(firstDate) && students[i].getBirthDate().before(lastDate)) || (firstDate.equals(students[i].getBirthDate()) || lastDate.equals(students[i].getBirthDate())))
+			if((students[i].getBirthDate().after(firstDate) && students[i].getBirthDate().before(lastDate)) || firstDate.equals(students[i].getBirthDate()) || lastDate.equals(students[i].getBirthDate()))
 				c++;
 		Student[] new_students = new Student[c];
 		int j=0;
 		for (int i=0;i<students.length ; ++i) {
-			if((students[i].getBirthDate().after(firstDate) && students[i].getBirthDate().before(lastDate)) || (firstDate.equals(students[i].getBirthDate()) || lastDate.equals(students[i].getBirthDate())))
+			if((students[i].getBirthDate().after(firstDate) && students[i].getBirthDate().before(lastDate)) || firstDate.equals(students[i].getBirthDate()) || lastDate.equals(students[i].getBirthDate()))
 				new_students[j++]=students[i];
 		}
 		return new_students;
@@ -251,7 +251,9 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student getNextStudent(Student student)throws IllegalArgumentException {
-		for (int i=0;i<students.length;++i)
+		if(student==null)
+			throw IllegalArgumentException();
+		for (int i=0;i<students.length-1;++i)
 			if(students[i].equals(student))
 				return students[i+1];
 		return null;
