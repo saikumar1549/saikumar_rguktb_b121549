@@ -64,6 +64,7 @@ public class StudentGroup implements StudentArrayOperation {
 		if(student==null)
 			throw new IllegalArgumentException();
 		add(student,students.length);
+		return;
 	}
 
 	@Override
@@ -210,9 +211,14 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student getNextStudent(Student student) {
+		int ind=-1;
 		for (int i=0;i<students.length;++i)
 			if(students[i].equals(student))
-				return students[i+1];
+			{
+				ind=i;
+			}
+		if(ind!=-1)
+			return students[ind+1];
 		return null;
 	}
 }
