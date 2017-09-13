@@ -252,8 +252,8 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student getNextStudent(Student student)throws IllegalArgumentException {
 		if(student==null)
-			throw IllegalArgumentException();
-		for (int i=0;i<students.length-1;++i)
+			throw new IllegalArgumentException();
+		for (int i=0;i<students.length;++i)
 			if(students[i].equals(student))
 				return students[i+1];
 		return null;
