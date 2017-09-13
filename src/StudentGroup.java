@@ -157,6 +157,7 @@ public class StudentGroup implements StudentArrayOperation {
 				removeToIndex(i);
 				break;
 			}
+		students=new_students;
 		return;
 	}
 
