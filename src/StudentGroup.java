@@ -183,14 +183,13 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		int c=0;
 		for (int i=0;i<students.length ; ++i)
-			if(date.after(students[i].getBirthDate()) || date.equals(students[i].getBirthDate()))
+			if(students[i].getBirthDate().before(date) || students[i].getBirthDate().equals(date))
 				c++;
 		Student[] new_students = new Student[c];
 		int j=0;
-		for (int i=0;i<students.length ; ++i) {
-			if(date.after(students[i].getBirthDate()) || date.equals(students[i].getBirthDate()))
+		for (int i=0;i<students.length ; ++i) 
+			if(students[i].getBirthDate().before(date) || students[i].getBirthDate().equals(date))
 				new_students[j++]=students[i];
-		}
 		return new_students;
 	}
 
@@ -200,12 +199,12 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		int c=0;
 		for (int i=0;i<students.length ; ++i)
-			if(lastDate.after(students[i].getBirthDate()) && firstDate.before(students[i].getBirthDate()) || firstDate.equals(students[i].getBirthDate()) || lastDate.equals(students[i].getBirthDate()))
+			if((students[i].getBirthDate().after(firstDate) && students[i].getBirthDate().before(lastDate)) || (firstDate.equals(students[i].getBirthDate()) || lastDate.equals(students[i].getBirthDate())))
 				c++;
 		Student[] new_students = new Student[c];
 		int j=0;
 		for (int i=0;i<students.length ; ++i) {
-			if(lastDate.after(students[i].getBirthDate()) && firstDate.before(students[i].getBirthDate()) || firstDate.equals(students[i].getBirthDate()) || lastDate.equals(students[i].getBirthDate()))
+			if((students[i].getBirthDate().after(firstDate) && students[i].getBirthDate().before(lastDate)) || (firstDate.equals(students[i].getBirthDate()) || lastDate.equals(students[i].getBirthDate())))
 				new_students[j++]=students[i];
 		}
 		return new_students;
