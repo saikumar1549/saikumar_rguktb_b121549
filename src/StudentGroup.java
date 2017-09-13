@@ -176,15 +176,37 @@ public class StudentGroup implements StudentArrayOperation {
     }
 
 	@Override
-	public Student[] getByBirthDate(Date date) {
-		
-		return null;
+	public Student[] getByBirthDate(Date date) throws IllegalArgumentException{
+		if(date==null) 
+			throw new IllegalArgumentException();
+		int c=0;
+		for (int i=0;i<students.length ; ++i)
+			if(date.after(students[i].getBirthDate()) || date.equals(students[i].getBirthDate()))
+				c++;
+		Student[] new_students = new Student[c];
+		int j=0;
+		for (int i=0;i<students.length ; ++i) {
+			if(date.after(students[i].getBirthDate()) || date.equals(students[i].getBirthDate()))
+				new_students[j++]=students[i];
+		}
+		return new_students;
 	}
 
 	@Override
-	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
-		
-		return null;
+	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) throws IllegalArgumentException {
+		if(date==null) 
+			throw new IllegalArgumentException();
+		int c=0;
+		for (int i=0;i<students.length ; ++i)
+			if(lastDate.after(students[i].getBirthDate()) && firstDate.before(students[i].getBirthDate()) || firstDate.equals(students[i].getBirthDate()) || lastDate.equals(students[i].getBirthDate()))
+				c++;
+		Student[] new_students = new Student[c];
+		int j=0;
+		for (int i=0;i<students.length ; ++i) {
+			if(lastDate.after(students[i].getBirthDate()) && firstDate.before(students[i].getBirthDate()) || firstDate.equals(students[i].getBirthDate()) || lastDate.equals(students[i].getBirthDate()))
+				new_students[j++]=students[i];
+		}
+		return new_students;
 	}
 
 	@Override
@@ -206,7 +228,7 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public Student[] getStudentsWithMaxAvgMark() {
+	public Student[] getStudentsWithMaxAvgMark()throws IllegalArgumentException {
 		double maxAvg=students[0].getAvgMark();
 		int count=0;
 		for (int i=1;i<students.length;++i)
@@ -227,7 +249,7 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public Student getNextStudent(Student student) {
+	public Student getNextStudent(Student student)throws IllegalArgumentException {
 		for (int i=0;i<students.length;++i)
 			if(students[i].equals(student))
 				return students[i+1];
