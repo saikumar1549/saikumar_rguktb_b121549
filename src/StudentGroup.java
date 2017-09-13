@@ -207,21 +207,20 @@ public class StudentGroup implements StudentArrayOperation {
 	public Student[] getStudentsWithMaxAvgMark() {
 		double maxAvg=students[0].getAvgMark();
 		int count=0;
-		for (int i=1;i<students.length;++i) {
+		for (int i=1;i<students.length;++i)
 			if(students[i].getAvgMark() > maxAvg)
 				maxAvg=students[i].getAvgMark();
-		for (int i=0;i<students.length;++i) {
+		for (int i=0;i<students.length;++i)
 			if(students[i].getAvgMark() == maxAvg)
 				count++;
 		Student[] new_students = new Student[count];
 		int j=0;
-		for (int i=0;i<students.length;++i) {
+		for (int i=0;i<students.length;++i)
 			if(students[i].getAvgMark() == maxAvg)
 			{
 				new_students[j]=students[i];
 				j=j+1;
 			}
-		}
 		return new_students;
 	}
 
