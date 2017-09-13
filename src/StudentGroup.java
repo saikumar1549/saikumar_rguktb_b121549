@@ -100,7 +100,7 @@ public class StudentGroup implements StudentArrayOperation {
 		if(student==null)
 			throw new IllegalArgumentException();
 		for (int i=0;i<students.length;++i) {
-			if(students[i].equals(student))
+			if(students[i]==student)
 			{
 				count++;
 				remove(i);
@@ -128,7 +128,7 @@ public class StudentGroup implements StudentArrayOperation {
 		if(student==null)
 			throw new IllegalArgumentException();
 		for (int i=0;i<students.length;++i)
-			if(students[i].equals(student))
+			if(students[i]==student)
 			{
 				removeFromIndex(i);
 				break;
@@ -153,7 +153,7 @@ public class StudentGroup implements StudentArrayOperation {
 		if(student==null)
 			throw new IllegalArgumentException();
 		for (int i=0;i<students.length;++i)
-			if(students[i].equals(student))
+			if(students[i]==student)
 			{
 				removeToIndex(i);
 				break;
@@ -211,14 +211,9 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student getNextStudent(Student student) {
-		int ind=-1;
 		for (int i=0;i<students.length;++i)
-			if(students[i].equals(student))
-			{
-				ind=i;
-			}
-		if(ind!=-1)
-			return students[ind+1];
+			if(students[i]==student)
+				return students[i+1];
 		return null;
 	}
 }
