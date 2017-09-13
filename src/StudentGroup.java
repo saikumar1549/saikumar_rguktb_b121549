@@ -32,8 +32,6 @@ public class StudentGroup implements StudentArrayOperation {
 	public void setStudents(Student[] students) throws IllegalArgumentException{
 		if(students==null)
 			throw new IllegalArgumentException();
-		int l=students.length;
-		this.students = new Student[l];
 		this.students=students;
 		return;
 	}
@@ -65,7 +63,11 @@ public class StudentGroup implements StudentArrayOperation {
 	public void addLast(Student student)throws IllegalArgumentException {
 		if(student==null)
 			throw new IllegalArgumentException();
-		add(student,students.length);
+		Student[] new_students=new Student[students.length+1];
+		for(int i=0;i<students.length;++i)
+			new_students[i]=students[i];
+		new_students[i]=student;
+		students=new_students;
 		return;
 	}
 
