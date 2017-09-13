@@ -152,7 +152,7 @@ public class StudentGroup implements StudentArrayOperation {
 		if(student==null)
 			throw new IllegalArgumentException();
 		for (int i=0;i<students.length;++i)
-			if(students[i]==student)
+			if(students[i].equals(student))
 			{
 				removeToIndex(i);
 				break;
