@@ -127,7 +127,7 @@ public class StudentGroup implements StudentArrayOperation {
 		if(student==null)
 			throw new IllegalArgumentException();
 		for (int i=0;i<students.length;++i)
-			if(students[i]==student)
+			if(students[i].equals(student))
 			{
 				removeFromIndex(i);
 				break;
@@ -157,7 +157,6 @@ public class StudentGroup implements StudentArrayOperation {
 				removeToIndex(i);
 				break;
 			}
-		students=new_students;
 		return;
 	}
 
@@ -206,13 +205,13 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
-		// Add your implementation here
+
 		return null;
 	}
 
 	@Override
 	public Student getNextStudent(Student student) {
-		// Add your implementation here
+		
 		return null;
 	}
 }
