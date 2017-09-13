@@ -159,7 +159,6 @@ public class StudentGroup implements StudentArrayOperation {
 			}
 		return;
 	}
-
 	@Override
 	public void bubbleSort() {
 		for (int i=1; i<students.length; ++i)
@@ -211,7 +210,9 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student getNextStudent(Student student) {
-		
+		for (int i=0;i<students.length;++i)
+			if(students[i].equals(student))
+				return students[i+1];
 		return null;
 	}
 }
